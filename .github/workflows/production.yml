@@ -6,8 +6,9 @@ on:
     - master
 
 jobs:
-  build:
+  build-test-deploy:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js 16.x
