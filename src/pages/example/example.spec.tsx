@@ -1,10 +1,10 @@
-import { render } from '@testing-library/react';
 import { screen, waitFor } from '@testing-library/react';
-import App from '../App';
+import { renderWithAllProviders } from '../../testUtils/utils';
+import Example from './Example';
 
-describe('App test suite', () => {
-  it('renders a heading', async () => {
-    render(<App />);
+describe('Example test suite', () => {
+  it('renders example text', async () => {
+    renderWithAllProviders(<Example />);
     await waitFor(() => {
       expect(
         screen.getByText('Click on the Vite and React logos to learn more')
