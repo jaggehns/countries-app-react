@@ -1,5 +1,5 @@
-import CardView from '../pages/CardView/CardView';
-import Example from '../pages/example/Example';
+import CountryView from '../pages/CountryView';
+import MainView from '../pages/MainView/MainView';
 
 export interface IRoute {
   path: string;
@@ -11,7 +11,12 @@ export interface IRoute {
 export const routes: IRoute[] = [
   {
     path: '/',
-    name: 'CardView',
-    component: CardView,
+    name: 'MainView',
+    component: MainView,
+  },
+  {
+    path: '/:country',
+    name: 'CountryView',
+    component: CountryView,
   },
 ];

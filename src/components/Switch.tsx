@@ -6,6 +6,7 @@ interface SwitchProps {
   label?: string;
   cardViewLabel?: string;
   tableViewLabel?: string;
+  darkMode: boolean;
 }
 
 const Switch: React.FC<SwitchProps> = ({
@@ -14,6 +15,7 @@ const Switch: React.FC<SwitchProps> = ({
   label,
   cardViewLabel = 'Card',
   tableViewLabel = 'Table',
+  darkMode,
 }) => {
   const [isCardView, setIsCardView] = useState<boolean>(isChecked);
 
@@ -29,11 +31,15 @@ const Switch: React.FC<SwitchProps> = ({
 
   return (
     <div className="flex items-center">
-      <label htmlFor="switch">
+      <label
+        className={darkMode ? 'text-white' : 'text-black'}
+        htmlFor="switch"
+      >
         {isCardView ? cardViewLabel : tableViewLabel}
       </label>
       <div className="relative inline-block w-10 mr-2 ml-2 align-middle select-none">
         <input
+          data-testid="switch-component"
           type="checkbox"
           id="switch"
           className={toggleClassName}
@@ -46,7 +52,7 @@ const Switch: React.FC<SwitchProps> = ({
         ></label>
       </div>
       {label && (
-        <label className="ml-4" htmlFor="switch">
+        <label className={'ml-4'} htmlFor="switch">
           {label}
         </label>
       )}

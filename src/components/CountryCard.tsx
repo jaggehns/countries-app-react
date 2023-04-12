@@ -1,15 +1,22 @@
 import React from 'react';
 import { CountryData } from '../interfaces/countriesInterface';
+import { useNavigate } from 'react-router-dom';
 
 interface ICountryCard {
   country: CountryData;
 }
 
 const CountryCard: React.FC<ICountryCard> = ({ country }) => {
+  const navigate = useNavigate();
   return (
     <div
       key={country.name.official}
       className="bg-white rounded-md shadow-md overflow-hidden transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 cursor-pointer"
+      onClick={() => {
+        navigate(`/${country.name.common.toLocaleLowerCase()}`, {
+          state: country,
+        });
+      }}
     >
       <img
         className="w-full h-40 object-cover"

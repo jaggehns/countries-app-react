@@ -1,16 +1,13 @@
 import { screen, waitFor } from '@testing-library/react';
-import {
-  default as user,
-  default as userEvent,
-} from '@testing-library/user-event';
+import user from '@testing-library/user-event';
 import { rest } from 'msw';
 import { server } from '../../../setupTests';
 import { renderWithAllProviders } from '../../testUtils/utils';
-import CardView from './CardView';
+import MainView from './MainView';
 
 describe('UI rendering test suite', () => {
   it('UI sanity check', async () => {
-    renderWithAllProviders(<CardView />);
+    renderWithAllProviders(<MainView />);
     await waitFor(() => {
       expect(screen.getByText('Countries Card View')).toBeInTheDocument();
     });
@@ -21,7 +18,7 @@ describe('UI rendering test suite', () => {
         return res(ctx.status(500), ctx.json({}));
       })
     );
-    renderWithAllProviders(<CardView />);
+    renderWithAllProviders(<MainView />);
     await waitFor(() => {
       expect(screen.getByText('No Countries Found')).toBeInTheDocument();
     });
@@ -30,14 +27,14 @@ describe('UI rendering test suite', () => {
 
 describe('Searchbar test suite', () => {
   it('If ba is typed, Barbados should be in the UI', async () => {
-    renderWithAllProviders(<CardView />);
+    renderWithAllProviders(<MainView />);
     await user.type(screen.getByPlaceholderText('Search for a country'), 'Ba');
     await waitFor(() => {
       expect(screen.getByText('Barbados')).toBeInTheDocument();
     });
   });
   it('If sia is typed, Malaysia & Indonesia should be in the UI', async () => {
-    renderWithAllProviders(<CardView />);
+    renderWithAllProviders(<MainView />);
     await user.type(screen.getByPlaceholderText('Search for a country'), 'sia');
     await waitFor(() => {
       expect(screen.getByText('Malaysia')).toBeInTheDocument();
@@ -48,11 +45,21 @@ describe('Searchbar test suite', () => {
 
 describe('Filter by region test suite', () => {
   it('Check that filter by region component renders correctly', async () => {
-    renderWithAllProviders(<CardView />);
+    renderWithAllProviders(<MainView />);
     //@ts-ignore
     expect(screen.getByRole('option', { name: 'All countries' }).selected).toBe(
       true
     );
     expect(screen.getAllByRole('option').length).toBe(6);
+  });
+});
+
+describe('Switch test suite', () => {
+  it('Check that switch renders correctly', async () => {
+    renderWithAllProviders(<MainView />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId('switch-component')).toBeInTheDocument();
+    });
   });
 });
