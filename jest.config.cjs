@@ -5,6 +5,7 @@ module.exports = {
   moduleNameMapper: {
     '.+\\.(css|styl|less|sass|scss)$': 'identity-obj-proxy',
     '\\.(png|svg|pdf|jpg|jpeg|gif)$': '<rootDir>/fileMock.ts',
+    '.+\\.(css|styl|less|sass|scss)$': '<rootDir>/src/test/index.css',
   },
   transform: {
     '^.+\\.(js|jsx|ts)$': 'babel-jest',

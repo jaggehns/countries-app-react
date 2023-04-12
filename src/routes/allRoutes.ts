@@ -1,3 +1,4 @@
+import CardView from '../pages/CardView/CardView';
 import Example from '../pages/example/Example';
 
 export interface IRoute {
@@ -10,7 +11,7 @@ export interface IRoute {
 export const routes: IRoute[] = [
   {
     path: '/',
-    name: 'Example',
-    component: Example,
+    name: 'CardView',
+    component: CardView,
   },
 ];
