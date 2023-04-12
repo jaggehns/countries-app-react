@@ -8,7 +8,7 @@ import { CountryData } from '../interfaces/countriesInterface';
 
 const CountryView: React.FC = () => {
   const location = useLocation();
-  const navigate = useNavigate(-1);
+  const navigate = useNavigate();
   const [darkMode, toggleDarkMode] = useDarkMode();
   const country: CountryData = location.state;
   return (
