@@ -35,6 +35,7 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="flex items-center ml-auto">
           <nav className="flex items-center w-auto">
             <button
+              role="button"
               onClick={toggleDarkMode}
               className={`flex items-center focus:outline-none ${
                 darkMode ? 'text-white' : 'text-black'

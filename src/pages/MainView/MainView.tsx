@@ -118,8 +118,8 @@ const MainView: React.FC = () => {
                   darkMode={darkMode}
                   renderTableRows={filteredCountries
                     .slice(indexOfFirstCountry, indexOfLastCountry)
-                    .map((country) => (
-                      <CountryTableRow country={country} />
+                    .map((country, index) => (
+                      <CountryTableRow key={index} country={country} />
                     ))}
                 />
               )
