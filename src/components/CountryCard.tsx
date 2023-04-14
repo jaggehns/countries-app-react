@@ -1,6 +1,6 @@
 import React from 'react';
-import { CountryData } from '../interfaces/countriesInterface';
 import { useNavigate } from 'react-router-dom';
+import { CountryData } from '../interfaces/countriesInterface';
 
 interface ICountryCard {
   country: CountryData;

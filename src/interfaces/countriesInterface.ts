@@ -23,7 +23,7 @@ export interface CountryData {
   altSpellings: string[];
   region: string;
   subregion?: string;
-  languages?: Languages;
+  languages?: any;
   translations: Translations;
   latlng: number[];
   landlocked: boolean;

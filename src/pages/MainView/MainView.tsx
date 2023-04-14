@@ -1,20 +1,19 @@
 import { ChangeEvent, useState } from 'react';
-import { FaMoon, FaSun } from 'react-icons/fa';
 import { url } from '../../api/routes/common';
+import CountryCard from '../../components/CountryCard';
+import CountryTableRow from '../../components/CountryTableRow';
 import DropdownFilter from '../../components/DropdownFilter';
+import { Footer } from '../../components/Footer';
+import { Header } from '../../components/Header';
+import { MainContent } from '../../components/MainContent';
 import { Pagination } from '../../components/Pagination';
 import Switch from '../../components/Switch';
+import Table from '../../components/Table';
 import { useCountryFilter } from '../../hooks/useCountryFilter';
 import useDarkMode from '../../hooks/useDarkMode';
 import useFetch from '../../hooks/useFetch';
 import { CountryData } from '../../interfaces/countriesInterface';
-import CountryCard from '../../components/CountryCard';
-import CountryTableRow from '../../components/CountryTableRow';
-import Table from '../../components/Table';
 import Layout from '../../layouts/Layout';
-import { Header } from '../../components/Header';
-import { Footer } from '../../components/Footer';
-import { MainContent } from '../../components/MainContent';
 
 interface Option {
   value: string;

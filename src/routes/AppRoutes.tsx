@@ -14,10 +14,7 @@ const AppRoutes = () => {
             />
           );
         })}
-        {/* <Route
-          path='*'
-          element={<ErrorComponent errorCode={'404'} description={`This page does not exist!`} />}
-        /> */}
+        <Route path="*" element={<>An error has occured! Go Back</>} />
       </Routes>
     </>
   );

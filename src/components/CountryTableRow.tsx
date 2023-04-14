@@ -1,6 +1,6 @@
 import React from 'react';
-import { CountryData } from '../interfaces/countriesInterface';
 import { useNavigate } from 'react-router-dom';
+import { CountryData } from '../interfaces/countriesInterface';
 
 interface ICountryCard {
   country: CountryData;
@@ -9,14 +9,17 @@ interface ICountryCard {
 const CountryTableRow: React.FC<ICountryCard> = ({ country }) => {
   const navigate = useNavigate();
   return (
-    <tr className="text-sm text-center items-center" key={country.name.common}>
+    <tr
+      onClick={() => {
+        navigate(`/${country.name.common}`, {
+          state: country,
+        });
+      }}
+      className="text-sm text-center items-center cursor-pointer"
+      key={country.name.common}
+    >
       <td className="px-4 py-2 flex justify-center">
         <img
-          onClick={() => {
-            navigate(`/${country.name.common}`, {
-              state: country,
-            });
-          }}
           className="h-10 w-12 object-cover cursor-pointer"
           src={country.flags.png}
           alt={`Flag of ${country.name}`}

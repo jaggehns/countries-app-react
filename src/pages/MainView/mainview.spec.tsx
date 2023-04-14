@@ -1,9 +1,14 @@
-import { screen, waitFor } from '@testing-library/react';
+import { getByText, screen, waitFor } from '@testing-library/react';
 import user from '@testing-library/user-event';
 import { rest } from 'msw';
 import { server } from '../../../setupTests';
-import { renderWithAllProviders } from '../../testUtils/utils';
+import {
+  renderWithAllProviders,
+  renderWithMemoryRouter,
+  renderWithRouter,
+} from '../../testUtils/utils';
 import MainView from './MainView';
+import AppRoutes from '../../routes/AppRoutes';
 
 describe('UI rendering test suite', () => {
   it('UI sanity check', async () => {

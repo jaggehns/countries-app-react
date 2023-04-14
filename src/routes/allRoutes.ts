@@ -1,4 +1,4 @@
-import CountryView from '../pages/CountryView';
+import CountryView from '../pages/CountryView/CountryView';
 import MainView from '../pages/MainView/MainView';
 
 export interface IRoute {

@@ -1,8 +1,8 @@
 import { rest } from 'msw';
-import { BrowserRouter, MemoryRouter } from 'react-router-dom';
+import { BrowserRouter, MemoryRouter, Route, Routes } from 'react-router-dom';
 import { render, RenderOptions } from '@testing-library/react';
 import React, { FC, ReactElement } from 'react';
-import fs from 'fs';
+import CountryView from '../pages/CountryView/CountryView';
 
 //So jest knows that this file is a valid module
 export {};
@@ -47442,3 +47442,13 @@ export function renderWithMemoryRouter(
       ),
   };
 }
+
+export const renderWithRouter = (element: any) =>
+  render(
+    <MemoryRouter initialEntries={['/']}>
+      <Routes>
+        <Route path="/" element={element} />
+        <Route path="/:country" element={<CountryView />} />
+      </Routes>
+    </MemoryRouter>
+  );

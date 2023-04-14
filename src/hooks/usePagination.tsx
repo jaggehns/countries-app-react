@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { CountryData } from '../interfaces/countriesInterface';
 
 const ITEMS_PER_PAGE = 12;

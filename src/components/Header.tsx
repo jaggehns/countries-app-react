@@ -4,12 +4,14 @@ interface HeaderProps {
   darkMode: boolean;
   toggleDarkMode: () => void;
   isCardView?: boolean;
+  isCountryDetailView?: boolean;
 }
 
 export const Header: React.FC<HeaderProps> = ({
   darkMode,
   toggleDarkMode,
   isCardView,
+  isCountryDetailView,
 }) => {
   return (
     <header
@@ -23,7 +25,11 @@ export const Header: React.FC<HeaderProps> = ({
             darkMode ? 'text-white' : 'text-black'
           }`}
         >
-          {isCardView ? 'Countries Card View' : 'Countries Table View'}
+          {isCountryDetailView
+            ? 'Country Details'
+            : isCardView
+            ? 'Countries Card View'
+            : 'Countries Table View'}
         </div>
 
         <div className="flex items-center ml-auto">
